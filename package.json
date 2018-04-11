@@ -1,0 +1,23 @@
+{
+  "name": "araqueheinz_dws2_responsivewebapp",
+  "version": "1.0.0",
+  "description": "Heinz Araque\r 4/11/2018\r DSW2 Project 2: Build a Responsive Webapp.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/araqueheinz/AraqueHeinz_DWS2_ResponsiveWebApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/araqueheinz/AraqueHeinz_DWS2_ResponsiveWebApp/issues"
+  },
+  "homepage": "https://github.com/araqueheinz/AraqueHeinz_DWS2_ResponsiveWebApp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}
