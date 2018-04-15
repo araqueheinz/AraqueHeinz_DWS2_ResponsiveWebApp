@@ -1,9 +1,340 @@
-*{
+$primary-black: #100f0f;
+$primary-grey: #373737;
+$primary-Font: #fafafa;
+
+
+
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                         MASTER CONTROLS                             / */
+/* /////////////////////////////////////////////////////////////////////// */
+
+* {
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    background-color: red;
-    color: green;
+}
+html {
+    line-height: 1.4;
+    font-size: 62.5%;    
+    }
 
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    }
+
+h1, h2, h3, h4, p, a,{
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    font-weight: normal;
+    color: $primary-Font;
+    }
+    h1 {
+    font-size: 2.8rem;
+    }
+    h2 {
+    font-size: 2.6rem;
+    }
+    h3 {
+    font-size: 2rem;
+    }
+    h4, p {
+    font-size: 1.4rem;
+    }
+
+
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                         HEADER NAV CONTROLS                         / */
+/* /////////////////////////////////////////////////////////////////////// */
+
+header{
+        
+
+
+    #logo{
+        width: 35px;
+        height: auto;
+    }
+    .btn{
+
+        background-color: transparent;
+        border: none; 
+        color: $primary-Font; 
+        padding: 0.4rem;
+        font-size: 1.6rem; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+
+        &:hover{
+
+            background-color: #888888;
+        }
+      
+        @media (min-width: 800px){
+           display: none;
+        }
+    }
+
+ 
+
+    nav{
+        position: relative;
+        background-color: $primary-grey;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width: 800px){
+                
+            position: relative;
+            padding: 0.3rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        
+        }
+
+        ul{
+
+            display: none;
+            background-color: $primary-grey;
+            position: absolute;
+            top:37px;
+            left:0;
+            z-index: 2;
+
+            
+
+            @media (min-width: 800px){
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                top:0;
+                z-index: 0;
+                
+            }   
+
+            li{
+
+                display: block;               
+                border-left: none;
+                border-bottom: $primary-Font solid 1px;
+                padding: 1rem;
+
+                @media (min-width: 800px){
+                    list-style: none;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    border-bottom: none;  
+                         
+                }
+
+                a{
+                    
+                    font-size: 1.2rem;
+                    font-weight: lighter;
+                    color: $primary-Font;
+
+                }
+                &:not(:nth-of-type(5n)){                   
+                    
+
+                    @media (min-width: 800px){
+                        border-left: $primary-Font solid 1px;
+                    }
+                    
+                }
+            }
+        }
+
+        &::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+            height: 2px;
+            width: 100%;
+        }
+
+        
+    }
+
+    h1{
+        
+        background-color: $primary-black;
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding-left: 1.6rem;
+        padding-top: 1rem;
+    }
+
+
+            /* POPULAR 1st ROW
+        ==================================================
+        ================================================== */
+
+    #popular-1{
+        background-color: $primary-black;
+        
+
+        ul{ 
+            display: flex;
+            flex-direction: column;
+
+            @media (min-width: 800px){
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            li{
+
+                position: relative;
+                margin: 0.8rem;
+
+                
+                img{
+                    width: 100%;
+                }
+
+                h2{
+                   
+                    margin-bottom: 1rem;
+                    font-size: 1.6rem;
+                    display: block;
+                    text-align: center;
+                    background-color: rgba(17,17,17, 0.65);
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    
+        
+                }
+               
+                
+            }
+           
+        }
+        
+    }
+   
+             /* POPULAR 2nd ROW
+        ==================================================
+        ================================================== */
+  
+    #popular-2{
+        background-color: #100f0f;
+        
+
+        ul{
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            @media (min-width: 800px){
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+
+            li{      
+                position: relative;
+                margin: 0.8rem;
+        
+                img{
+                    width: 100%;
+                }
+
+                h2{
+                    margin-bottom: 1rem;
+                    font-size: 1.6rem;
+                    display: block;
+                    text-align: center;
+                    color: $primary-Font;
+                    background-color: rgba(17,17,17, 0.65);
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+        
+                }  
+
+                &:nth-of-type(3n){
+                    display:none;
+                    @media (min-width: 800px){
+                        display: block;
+                    }
+                }
+                &:nth-of-type(2n){
+                    display:none;
+                    @media (min-width: 800px){
+                        display: block;
+                    }
+                }               
+            }           
+        }
+    }
+}
+
+
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                            TOP RATED MOVIES                         / */
+/* /////////////////////////////////////////////////////////////////////// */
+
+.top-rated{
+
+    h1{
+        color: $primary-black;
+        margin: 1rem;
+        font-weight: lighter;
+    }
+
+    ul{
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+
+        li{
+            list-style: none;
+            padding: 0.5rem;
+
+            img{
+                height:300px;
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            &:nth-of-type(4n){
+                display:none;
+                @media (min-width: 800px){
+                    display: block;
+                }
+            }
+            &:nth-of-type(5n){
+                display:none;
+                @media (min-width: 800px){
+                    display: block;
+                }
+            }
+            &:nth-of-type(6n){
+                display:none;
+                @media (min-width: 800px){
+                    display: block;
+                }
+            }
+
+            @media (min-width: 800px){
+
+                &:not(:nth-of-type(6n)) {
+                    margin-right: 1rem;
+                }
+            }          
+        }       
+    }
 }
 

@@ -1,6 +1,220 @@
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                         MASTER CONTROLS                             / */
+/* /////////////////////////////////////////////////////////////////////// */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  background-color: red;
-  color: green; }
+  box-sizing: border-box; }
+
+html {
+  line-height: 1.4;
+  font-size: 62.5%; }
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300; }
+
+h1, h2, h3, h4, p, a {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  font-weight: normal;
+  color: #fafafa; }
+
+h1 {
+  font-size: 2.8rem; }
+
+h2 {
+  font-size: 2.6rem; }
+
+h3 {
+  font-size: 2rem; }
+
+h4, p {
+  font-size: 1.4rem; }
+
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                         HEADER NAV CONTROLS                         / */
+/* /////////////////////////////////////////////////////////////////////// */
+header {
+  /* POPULAR 1st ROW
+        ==================================================
+        ================================================== */
+  /* POPULAR 2nd ROW
+        ==================================================
+        ================================================== */ }
+  header #logo {
+    width: 35px;
+    height: auto; }
+  header .btn {
+    background-color: transparent;
+    border: none;
+    color: #fafafa;
+    padding: 0.4rem;
+    font-size: 1.6rem;
+    /* Set a font size */
+    cursor: pointer;
+    /* Mouse pointer on hover */ }
+    header .btn:hover {
+      background-color: #888888; }
+    @media (min-width: 800px) {
+      header .btn {
+        display: none; } }
+  header nav {
+    position: relative;
+    background-color: #373737;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    @media (min-width: 800px) {
+      header nav {
+        position: relative;
+        padding: 0.3rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center; } }
+    header nav ul {
+      display: none;
+      background-color: #373737;
+      position: absolute;
+      top: 37px;
+      left: 0;
+      z-index: 2; }
+      @media (min-width: 800px) {
+        header nav ul {
+          display: flex;
+          flex-direction: row;
+          position: relative;
+          top: 0;
+          z-index: 0; } }
+      header nav ul li {
+        display: block;
+        border-left: none;
+        border-bottom: #fafafa solid 1px;
+        padding: 1rem; }
+        @media (min-width: 800px) {
+          header nav ul li {
+            list-style: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-bottom: none; } }
+        header nav ul li a {
+          font-size: 1.2rem;
+          font-weight: lighter;
+          color: #fafafa; }
+        @media (min-width: 800px) {
+          header nav ul li:not(:nth-of-type(5n)) {
+            border-left: #fafafa solid 1px; } }
+    header nav::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+      height: 2px;
+      width: 100%; }
+  header h1 {
+    background-color: #100f0f;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-left: 1.6rem;
+    padding-top: 1rem; }
+  header #popular-1 {
+    background-color: #100f0f; }
+    header #popular-1 ul {
+      display: flex;
+      flex-direction: column; }
+      @media (min-width: 800px) {
+        header #popular-1 ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: center; } }
+      header #popular-1 ul li {
+        position: relative;
+        margin: 0.8rem; }
+        header #popular-1 ul li img {
+          width: 100%; }
+        header #popular-1 ul li h2 {
+          margin-bottom: 1rem;
+          font-size: 1.6rem;
+          display: block;
+          text-align: center;
+          background-color: rgba(17, 17, 17, 0.65);
+          width: 100%;
+          position: absolute;
+          bottom: 0; }
+  header #popular-2 {
+    background-color: #100f0f; }
+    header #popular-2 ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      @media (min-width: 800px) {
+        header #popular-2 ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: center; } }
+      header #popular-2 ul li {
+        position: relative;
+        margin: 0.8rem; }
+        header #popular-2 ul li img {
+          width: 100%; }
+        header #popular-2 ul li h2 {
+          margin-bottom: 1rem;
+          font-size: 1.6rem;
+          display: block;
+          text-align: center;
+          color: #fafafa;
+          background-color: rgba(17, 17, 17, 0.65);
+          width: 100%;
+          position: absolute;
+          bottom: 0; }
+        header #popular-2 ul li:nth-of-type(3n) {
+          display: none; }
+          @media (min-width: 800px) {
+            header #popular-2 ul li:nth-of-type(3n) {
+              display: block; } }
+        header #popular-2 ul li:nth-of-type(2n) {
+          display: none; }
+          @media (min-width: 800px) {
+            header #popular-2 ul li:nth-of-type(2n) {
+              display: block; } }
+
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                            TOP RATED MOVIES                         / */
+/* /////////////////////////////////////////////////////////////////////// */
+.top-rated h1 {
+  color: #100f0f;
+  margin: 1rem;
+  font-weight: lighter; }
+
+.top-rated ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  .top-rated ul li {
+    list-style: none;
+    padding: 0.5rem; }
+    .top-rated ul li img {
+      height: 300px;
+      width: 100%;
+      border-radius: 20px; }
+    .top-rated ul li:nth-of-type(4n) {
+      display: none; }
+      @media (min-width: 800px) {
+        .top-rated ul li:nth-of-type(4n) {
+          display: block; } }
+    .top-rated ul li:nth-of-type(5n) {
+      display: none; }
+      @media (min-width: 800px) {
+        .top-rated ul li:nth-of-type(5n) {
+          display: block; } }
+    .top-rated ul li:nth-of-type(6n) {
+      display: none; }
+      @media (min-width: 800px) {
+        .top-rated ul li:nth-of-type(6n) {
+          display: block; } }
+    @media (min-width: 800px) {
+      .top-rated ul li:not(:nth-of-type(6n)) {
+        margin-right: 1rem; } }
