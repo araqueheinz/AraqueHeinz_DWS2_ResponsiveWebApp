@@ -1,0 +1,10 @@
+@mixin media($screen-size){
+    @media screen and (min-width: $screen-size){
+
+    }
+}
+@mixin display-flex($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}

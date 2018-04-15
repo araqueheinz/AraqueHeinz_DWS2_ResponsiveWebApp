@@ -1,7 +1,6 @@
-$primary-black: #100f0f;
-$primary-grey: #373737;
-$primary-Font: #fafafa;
-
+@import 'utilities/var';
+@import 'utilities/mixing';
+@import 'utilities/placeholders';
 
 
 /* /////////////////////////////////////////////////////////////////////// */
@@ -180,13 +179,10 @@ header{
         
 
         ul{ 
-            display: flex;
-            flex-direction: column;
+            @include display-flex('column', center); 
 
             @media (min-width: 800px){
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
+                @include display-flex('row', center);                
             }
 
             li{
@@ -235,9 +231,7 @@ header{
             justify-content: center;
             
             @media (min-width: 800px){
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
+                @include display-flex('row', center); 
             }
             
 
@@ -294,9 +288,7 @@ header{
 
     ul{
     
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+        @include display-flex('row', center); 
         
 
         li{
