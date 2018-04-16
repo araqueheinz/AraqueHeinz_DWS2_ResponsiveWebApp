@@ -124,11 +124,12 @@ header {
     background-color: #100f0f; }
     header #popular-1 ul {
       display: flex;
-      flex-direction: column; }
+      flex-direction: "column";
+      justify-content: center; }
       @media (min-width: 800px) {
         header #popular-1 ul {
           display: flex;
-          flex-direction: row;
+          flex-direction: "row";
           justify-content: center; } }
       header #popular-1 ul li {
         position: relative;
@@ -148,12 +149,12 @@ header {
     background-color: #100f0f; }
     header #popular-2 ul {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center; }
       @media (min-width: 800px) {
         header #popular-2 ul {
           display: flex;
-          flex-direction: row;
+          flex-direction: "row";
           justify-content: center; } }
       header #popular-2 ul li {
         position: relative;
@@ -191,7 +192,7 @@ header {
 
 .top-rated ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: "row";
   justify-content: center; }
   .top-rated ul li {
     list-style: none;
@@ -218,3 +219,32 @@ header {
     @media (min-width: 800px) {
       .top-rated ul li:not(:nth-of-type(6n)) {
         margin-right: 1rem; } }
+
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                            SEARCH RESULTS                           / */
+/* /////////////////////////////////////////////////////////////////////// */
+#search-results h1 {
+  color: #100f0f;
+  margin: 1rem;
+  font-weight: lighter; }
+
+#search-results ul {
+  text-align: center;
+  position: relative;
+  left: 4px; }
+  #search-results ul::after {
+    content: '';
+    display: block;
+    clear: both; }
+  #search-results ul li {
+    list-style: none;
+    position: relative;
+    margin-bottom: 15px;
+    float: left;
+    width: calc(100%/4 - 1rem); }
+    #search-results ul li img {
+      height: 300px;
+      width: 100%;
+      border-radius: 20px; }
+    #search-results ul li:not(:nth-of-type(6n)) {
+      margin-right: 10px; }

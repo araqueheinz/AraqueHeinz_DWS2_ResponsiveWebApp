@@ -227,7 +227,7 @@ header{
         ul{
             
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             
             @media (min-width: 800px){
@@ -330,3 +330,51 @@ header{
     }
 }
 
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                            SEARCH RESULTS                           / */
+/* /////////////////////////////////////////////////////////////////////// */
+
+#search-results{
+    
+
+    h1{
+        color: $primary-black;
+        margin: 1rem;
+        font-weight: lighter;
+    }
+
+    
+    ul{
+        
+        text-align: center;
+        position: relative;
+        left: 4px;
+
+        &::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        li{
+
+            img{
+                height:300px;
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            list-style: none;
+            position: relative;
+            margin-bottom: 15px;
+            float: left;
+            width: calc(100%/4 - 1rem);
+
+            &:not(:nth-of-type(6n)) {
+                margin-right: 10px;
+            }
+        }
+    }
+        
+        
+}

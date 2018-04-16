@@ -162,13 +162,14 @@ fetch(urlTopRated)
 
 let searchURL =`https://api.themoviedb.org/3/search/movie?api_key=${KEY}&language=en-US&query=`
 
-document.querySelector('#submit-search').addEventListener('submit', function(){
+document.querySelector('#search-bottom').addEventListener('click', function(){
     
-    
+
     let userSearch = document.querySelector('#search').value;
     let search = searchURL + userSearch;
     console.log(search);
-    
+
+
 
     fetch(search)
     .then(items => items.json())
@@ -180,7 +181,11 @@ document.querySelector('#submit-search').addEventListener('submit', function(){
             let content = `
             <h1>No Results!</h1>`
 
-            document.querySelector('#top-rated-1').innerHTML = content;
+            document.querySelector('#search-results').innerHTML = content;
+            document.querySelector('#top-rated-1').innerHTML = ''; 
+            document.querySelector('#top-rated-2').innerHTML = '';
+            document.querySelector('#top-rated-3').innerHTML = '';            
+
 
         }
         else{
@@ -199,10 +204,15 @@ document.querySelector('#submit-search').addEventListener('submit', function(){
         
             content += '</ul>';
 
-            document.querySelector('#top-rated-1').innerHTML = content;
+            document.querySelector('#search-results').innerHTML = content;
+            document.querySelector('#top-rated-1').innerHTML = '';
+            document.querySelector('#top-rated-2').innerHTML = '';  
+            document.querySelector('#top-rated-3').innerHTML = ''; 
         }
-    
-})
+
+        document.getElementById('submit-search').reset();
+        
+    })
 
 
 })
@@ -218,8 +228,10 @@ document.querySelector('.btn').addEventListener('click', function(){
     }
     else{
         document.querySelector('header nav ul').style.display = 'none'; 
-    }
-    
-    
+    }   
     
 })
+
+/* /////////////////////////////////////////////////////////////////////// */
+/* /                            STORAGE API                              / */
+/* /////////////////////////////////////////////////////////////////////// */ 
