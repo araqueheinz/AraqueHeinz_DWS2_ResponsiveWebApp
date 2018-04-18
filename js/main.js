@@ -76,7 +76,7 @@ fetch(urlPopular)
 /* /                           TOP RATED MOVIES ROW-1                    / */
 /* /////////////////////////////////////////////////////////////////////// */
 
-let topRated = document.querySelector('#top-rated-1');
+let topRated = document.querySelector('#top-rated');
 
 fetch(urlTopRated)
 .then(items => items.json())
@@ -87,7 +87,7 @@ fetch(urlTopRated)
     <h1>Top Rated</h1>
     <ul>`;
     
-    for(i=0; i<6; i++){
+    for(i=0; i<items.results.length -2; i++){
         content += `
         <li>
         <img src="${imageURL}${items.results[i].poster_path}" alt="${items.results[i].original_title}">
@@ -100,60 +100,6 @@ fetch(urlTopRated)
     topRated.innerHTML = content;
    })
    
-
-/* /////////////////////////////////////////////////////////////////////// */
-/* /                           TOP RATED MOVIES ROW-2                    / */
-/* /////////////////////////////////////////////////////////////////////// */
-
-let topRated2 = document.querySelector('#top-rated-2');
-
-fetch(urlTopRated)
-.then(items => items.json())
-.then(items => {
-    console.log(items.results);
-    
-    let content = `
-    <ul>`;
-    
-    for(i=6; i<12; i++){
-        content += `
-        <li>
-        <img src="${imageURL}${items.results[i].poster_path}" alt="${items.results[i].original_title}">
-        </li>
-        `
-    }
-
-     content += '</ul>';
-   
-    topRated2.innerHTML = content;
-   })
-
-/* /////////////////////////////////////////////////////////////////////// */
-/* /                           TOP RATED MOVIES ROW-3                    / */
-/* /////////////////////////////////////////////////////////////////////// */
-
-let topRated3 = document.querySelector('#top-rated-3');
-
-fetch(urlTopRated)
-.then(items => items.json())
-.then(items => {
-    console.log(items.results);
-    
-    let content = `
-    <ul>`;
-    
-    for(i=12; i<18; i++){
-        content += `
-        <li>
-        <img src="${imageURL}${items.results[i].poster_path}" alt="${items.results[i].original_title}">
-        </li>
-        `
-    }
-
-     content += '</ul>';
-   
-    topRated3.innerHTML = content;
-   })
 
 /* /////////////////////////////////////////////////////////////////////// */
 /* /                            SEARCH                                   / */
@@ -181,11 +127,8 @@ document.querySelector('form').addEventListener('submit', function(event){
             let content = `
             <h1>No Results!</h1>`
 
-            document.querySelector('#search-results').innerHTML = content;
-            document.querySelector('#top-rated-1').innerHTML = ''; 
-            document.querySelector('#top-rated-2').innerHTML = '';
-            document.querySelector('#top-rated-3').innerHTML = '';            
-
+            document.querySelector('#top-rated').innerHTML = content;           
+            document.querySelector('#search').value = '';
 
         }
         else{
@@ -204,15 +147,35 @@ document.querySelector('form').addEventListener('submit', function(event){
         
             content += '</ul>';
 
-            document.querySelector('#search-results').innerHTML = content;
-            document.querySelector('#top-rated-1').innerHTML = '';
-            document.querySelector('#top-rated-2').innerHTML = '';  
-            document.querySelector('#top-rated-3').innerHTML = ''; 
+            document.querySelector('#top-rated').innerHTML = content;
+            document.querySelector('#search').value = '';
         }
-
-        document.getElementById('submit-search').reset();
         
     })
+
+    // TODO:  add conditional to check for empty string in user input
+
+    // Grab the items from local storage
+    const searchItems = localStorage.getItem('searchValue');
+
+    // Check if there are items in localstorage
+    if(searchItems === null){ 
+        // If there isn't an item in localstorage, populate it
+        const newItems = [userSearch] // create new array with user input
+        localStorage.setItem('searchValue', JSON.stringify(newItems)); 
+    } else {    
+        // JSON.parse to turn a string into an array
+        const itemList = JSON.parse(searchItems); 
+        // Push user input into array
+        itemList.push(userSearch)
+        // JSON.stringfy new array, and set new array back to localstorage
+        localStorage.setItem('searchValue', JSON.stringify(itemList));
+    }
+    
+    
+
+
+
 
 
 })
@@ -235,3 +198,29 @@ document.querySelector('.btn').addEventListener('click', function(){
 /* /////////////////////////////////////////////////////////////////////// */
 /* /                            STORAGE API                              / */
 /* /////////////////////////////////////////////////////////////////////// */ 
+
+
+
+
+
+
+//Makes use of the Web Storage API to save previous results
+
+// const data = {
+//       username: "Emily",	
+//       colors: ["red", "green", "blue", "purple"],	
+//       id: 1	
+//     }	
+//     const stringData = JSON.stringify(data)
+//     localStorage.setItem('userdata', stringData)	
+//     // Or, further condensed as...
+//     localStorage.setItem('userdata', JSON.stringify(data))
+
+// // Set values via the setItem method	
+// localStorage.setItem('key', 'value')	
+// // Get values via the getItem method	
+// let myVariable = localStorage.getItem('key')	
+// // Remove items via the removeItem method	
+// localStorage.removeItem('key')
+// // Clear all storage	
+// localStorage.clear()

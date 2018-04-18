@@ -2,6 +2,12 @@
 @import 'utilities/mixing';
 @import 'utilities/placeholders';
 
+@mixin media($number){
+    @media(min-width:$number) {
+       @content
+    }
+}
+
 
 /* /////////////////////////////////////////////////////////////////////// */
 /* /                         MASTER CONTROLS                             / */
@@ -84,14 +90,13 @@ header{
         justify-content: space-between;
         align-items: center;
 
-        @media (min-width: 800px){
-                
+        
+        @include media(800px){
             position: relative;
             padding: 0.3rem;
             display: flex;
             justify-content: space-around;
             align-items: center;
-        
         }
 
         ul{
@@ -104,15 +109,14 @@ header{
             z-index: 2;
 
             
-
-            @media (min-width: 800px){
+            @include media(800px){
                 display: flex;
                 flex-direction: row;
                 position: relative;
                 top:0;
                 z-index: 0;
-                
-            }   
+            }
+
 
             li{
 
@@ -121,12 +125,11 @@ header{
                 border-bottom: $primary-Font solid 1px;
                 padding: 1rem;
 
-                @media (min-width: 800px){
+                @include media (800px){
                     list-style: none;
                     padding-left: 1rem;
                     padding-right: 1rem;
-                    border-bottom: none;  
-                         
+                    border-bottom: none;
                 }
 
                 a{
@@ -139,7 +142,7 @@ header{
                 &:not(:nth-of-type(5n)){                   
                     
 
-                    @media (min-width: 800px){
+                    @include media(800px){
                         border-left: $primary-Font solid 1px;
                     }
                     
@@ -181,8 +184,8 @@ header{
         ul{ 
             @include display-flex('column', center); 
 
-            @media (min-width: 800px){
-                @include display-flex('row', center);                
+            @include media(800px){
+                @include display-flex('row', center);
             }
 
             li{
@@ -230,7 +233,7 @@ header{
             flex-direction: row;
             justify-content: center;
             
-            @media (min-width: 800px){
+            @include media (800px){
                 @include display-flex('row', center); 
             }
             
@@ -255,19 +258,19 @@ header{
                     bottom: 0;
         
                 }  
-
-                &:nth-of-type(3n){
-                    display:none;
-                    @media (min-width: 800px){
-                        display: block;
-                    }
-                }
+                
                 &:nth-of-type(2n){
                     display:none;
-                    @media (min-width: 800px){
+                    @include media(800px){
                         display: block;
                     }
                 }               
+                &:nth-of-type(3n){
+                    display:none;
+                    @include media(800px){
+                        display: block;
+                    }
+                }
             }           
         }
     }
@@ -287,9 +290,8 @@ header{
     }
 
     ul{
-    
-        @include display-flex('row', center); 
-        
+        @include display-flex('row', 'none'); 
+        flex-wrap: wrap;
 
         li{
             list-style: none;
@@ -297,84 +299,12 @@ header{
 
             img{
                 height:300px;
-                width: 100%;
+                width: 200px;
                 border-radius: 20px;
             }
-
-            &:nth-of-type(4n){
-                display:none;
-                @media (min-width: 800px){
-                    display: block;
-                }
-            }
-            &:nth-of-type(5n){
-                display:none;
-                @media (min-width: 800px){
-                    display: block;
-                }
-            }
-            &:nth-of-type(6n){
-                display:none;
-                @media (min-width: 800px){
-                    display: block;
-                }
-            }
-
-            @media (min-width: 800px){
-
-                &:not(:nth-of-type(6n)) {
-                    margin-right: 1rem;
-                }
-            }          
         }       
     }
 }
 
-/* /////////////////////////////////////////////////////////////////////// */
-/* /                            SEARCH RESULTS                           / */
-/* /////////////////////////////////////////////////////////////////////// */
-
-#search-results{
-    
-
-    h1{
-        color: $primary-black;
-        margin: 1rem;
-        font-weight: lighter;
-    }
-
-    
-    ul{
+      
         
-        text-align: center;
-        position: relative;
-        left: 4px;
-
-        &::after{
-            content: '';
-            display: block;
-            clear: both;
-        }
-
-        li{
-
-            img{
-                height:300px;
-                width: 100%;
-                border-radius: 20px;
-            }
-
-            list-style: none;
-            position: relative;
-            margin-bottom: 15px;
-            float: left;
-            width: calc(100%/4 - 1rem);
-
-            &:not(:nth-of-type(6n)) {
-                margin-right: 10px;
-            }
-        }
-    }
-        
-        
-}
