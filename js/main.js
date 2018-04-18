@@ -162,8 +162,8 @@ fetch(urlTopRated)
 
 let searchURL =`https://api.themoviedb.org/3/search/movie?api_key=${KEY}&language=en-US&query=`
 
-document.querySelector('#search-bottom').addEventListener('click', function(){
-    
+document.querySelector('form').addEventListener('submit', function(event){
+    event.preventDefault();
 
     let userSearch = document.querySelector('#search').value;
     let search = searchURL + userSearch;
